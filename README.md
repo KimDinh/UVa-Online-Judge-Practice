@@ -1,4 +1,4 @@
-# UVa-Practice
+# UVa Online Judge Practice
 UVa Online Judge problems
 
 Problems are selected from recommended exercises in the book:
