@@ -31,7 +31,6 @@ int connected(int x, int y) {
 	return c;
 }
 
-
 int main() {
 	string s;
 	cin >> T;
@@ -46,7 +45,18 @@ int main() {
 			getline(cin, s);
 		}
 		while(true) {
-			x = s[0]-'0'-1; y = s[2]-'0'-1;
+			string s1="", s2="";
+			int j=0;
+			while(s[j]!=' ') {
+				s1 += s[j];
+				j++;
+			}
+			j++;
+			while(j<s.length()) {
+				s2 += s[j];
+				j++;
+			}
+			x = stoi(s1)-1; y = stoi(s2)-1;
 			memset(visited, 0, sizeof(visited));
 			if(a[x][y]=='L')
 				cout << 0 << endl;
@@ -56,8 +66,7 @@ int main() {
 		}
 		if(i<T)
 			cout << endl;
-}
-
+	}
 
 	return 0;
 }
