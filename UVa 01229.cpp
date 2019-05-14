@@ -85,7 +85,7 @@ int main(){
 		cout << ans.size() << endl << ans[0];
 		for(int i=1; i<ans.size(); i++)
 			cout << " " << ans[i];
-
+		cout << endl;
 		for(int i=0; i<n; i++)
 			adj[i].clear();
 		wordtoint.clear();
@@ -93,7 +93,6 @@ int main(){
 		ans.clear();
 
 		cin >> n;
-		if(n) cout << endl;
 	}
 
 	return 0;
