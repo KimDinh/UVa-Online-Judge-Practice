@@ -27,8 +27,9 @@ int main(){
 	cin >> n;
 	while(n){
 		size = 0;
-		memset(indegree, 0, sizeof(indegree));
 		memset(visited, 0, sizeof(visited));
+		for(int i=0; i<n; i++)
+		    indegree[i] = 0;
 		cin.ignore();
 		for(int i=0; i<n; i++){
 			getline(cin, s);
@@ -48,6 +49,7 @@ int main(){
 			while(++j<s.length()){
 				if(s[j]!=' '){
 					w += s[j];
+					if(j+1<s.length())
 					continue;
 				}
 				f = wordtoint.find(w);
