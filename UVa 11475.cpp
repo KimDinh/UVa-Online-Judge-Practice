@@ -43,7 +43,7 @@ int main(){
 		getline(cin, s);
 		rev = s;
 		reverse(rev.begin(), rev.end());
-        prefix_function(rev);
+        	prefix_function(rev);
 		int j=0;
 		for(int i=0; i<s.length(); i++){
 			while(j>0 && rev[j]!=s[i])
