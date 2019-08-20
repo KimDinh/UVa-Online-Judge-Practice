@@ -31,25 +31,25 @@ public:
 		set_num = n;
 		for(int i=0; i<n; i++) parent[i] = i;
 	}
-int FindSet(int i){
-	if(parent[i]==i) return i;
-	return (parent[i] = FindSet(parent[i]));
-}
-bool SameSet(int i, int j){ return (FindSet(i)==FindSet(j)); }
-void UnionSet(int i, int j){
-	int u=FindSet(i), v=FindSet(j);
-	if(u==v) return;
-	set_num--;
-	if(rank[u]<rank[v]){
-		parent[u] = v; size[v] += size[u];
+	int FindSet(int i){
+		if(parent[i]==i) return i;
+		return (parent[i] = FindSet(parent[i]));
 	}
-	else {
-		parent[v] = u; size[u] += size[v];
-		if(rank[u]==rank[v]) rank[u]++;
+	bool SameSet(int i, int j){ return (FindSet(i)==FindSet(j)); }
+	void UnionSet(int i, int j){
+		int u=FindSet(i), v=FindSet(j);
+		if(u==v) return;
+		set_num--;
+		if(rank[u]<rank[v]){
+			parent[u] = v; size[v] += size[u];
+		}
+		else {
+			parent[v] = u; size[u] += size[v];
+			if(rank[u]==rank[v]) rank[u]++;
+		}
 	}
-}
-int NumofSet(){ return set_num; }
-int SizeofSet(int i){ return size[FindSet(i)]; }
+	int NumofSet(){ return set_num; }
+	int SizeofSet(int i){ return size[FindSet(i)]; }
 };
 
 bool cmp(pair<int, pii> e1, pair<int, pii> e2){
