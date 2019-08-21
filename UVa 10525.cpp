@@ -19,7 +19,7 @@ int n, m;
 
 int main(){
 	long long t, d;
-    int u, v, q, T;
+    	int u, v, q, T;
 
 	cin >> T;
 	while(T--){
@@ -33,28 +33,28 @@ int main(){
 		for(int i=0; i<m; i++){
 			cin >> u >> v >> t >> d;
 			if(adj_time[u][v]<t)
-                continue;
-            if(adj_time[u][v]>t){
-                adj_time[u][v] = adj_time[v][u] = t;
-                adj_dist[u][v] = adj_dist[v][u] = d;
-                continue;
-            }
-            if(adj_dist[u][v]>d)
-                adj_dist[u][v] = adj_dist[v][u] = d;
+                		continue;
+            		if(adj_time[u][v]>t){
+                		adj_time[u][v] = adj_time[v][u] = t;
+                		adj_dist[u][v] = adj_dist[v][u] = d;
+                		continue;
+            		}
+            		if(adj_dist[u][v]>d)
+                	adj_dist[u][v] = adj_dist[v][u] = d;
 		}
 		//FloydWarshall's algorithm
 		for(int k=1; k<=n; k++)
 			for(int i=1; i<=n; i++)
 				for(int j=1; j<=n; j++){
-                    if(adj_time[i][j]<adj_time[i][k]+adj_time[k][j])
-                        continue;
+                    			if(adj_time[i][j]<adj_time[i][k]+adj_time[k][j])
+                        			continue;
 					if(adj_time[i][j]>adj_time[i][k]+adj_time[k][j]){
 						adj_time[i][j] = adj_time[i][k]+adj_time[k][j];
 						adj_dist[i][j] = adj_dist[i][k]+adj_dist[k][j];
-                        continue;
+                        			continue;
 					}
-                    adj_dist[i][j] = min(adj_dist[i][j], adj_dist[i][k]+adj_dist[k][j]);
-                }
+                    			adj_dist[i][j] = min(adj_dist[i][j], adj_dist[i][k]+adj_dist[k][j]);
+               	 		}
 		cin >> q;
 		for(int i=0; i<q; i++){
 			cin >> u >> v;
